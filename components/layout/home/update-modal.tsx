@@ -93,7 +93,6 @@ export default function UpdateModal({ petId, onUpdated }: UpdateModalProps) {
       <AlertDialog>
         <AlertDialogTrigger className="text-white">Update</AlertDialogTrigger>
         <AlertDialogContent className="bg-black">
-          {pet.name}
           <AlertDialogHeader>
             <AlertDialogTitle className="my-6 text-center">
               You are about to update this pet's information.

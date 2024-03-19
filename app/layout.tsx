@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import Header from "@/components/header";
+import Header from "@/components/layout/global/header";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 

@@ -21,7 +21,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { Button } from "./ui/button";
+import { Button } from "../../ui/button";
 import { Input } from "@/components/ui/input";
 
 import React from "react";

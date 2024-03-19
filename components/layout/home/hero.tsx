@@ -1,4 +1,4 @@
-import { SparklesCore } from "./ui/sparkles";
+import { SparklesCore } from "../../ui/sparkles";
 
 export default function Hero() {
   return (

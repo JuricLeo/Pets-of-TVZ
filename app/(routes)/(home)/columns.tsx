@@ -2,8 +2,8 @@ import { useUser } from "@clerk/nextjs";
 import { ColumnDef } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
-import UpdateModal from "@/components/update-modal";
-import DeleteModal from "@/components/delete-modal";
+import UpdateModal from "@/components/layout/home/update-modal";
+import DeleteModal from "@/components/layout/home/delete-modal";
 import { ArrowUpDown } from "lucide-react";
 
 export type Pet = {
@@ -18,7 +18,10 @@ export type Pet = {
   ownerId?: string;
 };
 
-export const columns = (handleUpdatePet: () => Promise<void>, handleDeletePet: (petId: number) => void): ColumnDef<Pet>[] => [
+export const columns = (
+  handleUpdatePet: () => Promise<void>,
+  handleDeletePet: (petId: number) => void
+): ColumnDef<Pet>[] => [
   {
     accessorKey: "name",
     header: "Name",

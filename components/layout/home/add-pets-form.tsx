@@ -2,7 +2,7 @@
 
 import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
-import { Button } from "./ui/button";
+import { Button } from "../../ui/button";
 import { toast } from "sonner";
 
 interface Pet {
