@@ -49,7 +49,11 @@ export const columns = (
   {
     accessorKey: "ownerName",
     header: "Owner Name",
-    cell: () => useOwnerName(),
+    cell: () => {
+      const { user } = useUser();
+
+      return <div>{user?.firstName}</div>;
+    },
   },
   {
     accessorKey: "createdAt",
@@ -77,24 +81,22 @@ export const columns = (
     header: "",
     cell: ({ row }) => {
       const pet = row.original;
+      const { user } = useUser();
 
-      return (
-        <div className="space-x-2 flex">
-          <Button variant="update" className="w-20">
-            <UpdateModal petId={pet.id} onUpdated={handleUpdatePet} />
-          </Button>
-          <Button variant="destructive" className="w-20">
-            <DeleteModal petId={pet.id} onDeleted={handleDeletePet} />
-          </Button>
-        </div>
-      );
+      if (user && pet.ownerId === user.id) {
+        return (
+          <div className="space-x-2 flex">
+            <Button variant="update" className="w-20">
+              <UpdateModal petId={pet.id} onUpdated={handleUpdatePet} />
+            </Button>
+            <Button variant="destructive" className="w-20">
+              <DeleteModal petId={pet.id} onDeleted={handleDeletePet} />
+            </Button>
+          </div>
+        );
+      }
     },
   },
 ];
-
-const useOwnerName = () => {
-  const { user } = useUser();
-  return user?.firstName;
-};
 
 export default columns;
