@@ -56,9 +56,9 @@ export default function Header() {
         <div className="hidden lg:flex items-center space-x-36">
           <div className="flex space-x-12">
             <Link href="/">Home</Link>
-            <Link href="/">Gallery</Link>
+            <Link href="/gallery">Gallery</Link>
             <Link href="/contact">Contact</Link>
-            <Link href="/">Settings</Link>
+            <Link href="/settings">Settings</Link>
           </div>
           <UserButton afterSignOutUrl="/" />
         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -68,7 +69,7 @@ const ContactPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="space-y-8 pt-40">
+      <form onSubmit={handleSubmit} className="space-y-8">
         <div className="flex flex-col flex-1 space-y-2">
           <label htmlFor="name" className="text-white/30">
             Name
@@ -80,7 +81,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'Luka'"
             className={cn(
-              "rounded-md bg-slate-800 p-6",
+              "rounded-md bg-slate-800 p-6 z-50",
               errors.name && "border-rose-500 border-2"
             )}
           />
@@ -97,7 +98,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'moj@tvz.hr'"
             className={cn(
-              "rounded-md bg-slate-800 p-6",
+              "rounded-md bg-slate-800 p-6 z-50",
               errors.email && "border-rose-500 border-2"
             )}
           />
@@ -116,7 +117,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'Pets Table'"
             className={cn(
-              "rounded-md bg-slate-800 p-6",
+              "rounded-md bg-slate-800 p-6 z-50",
               errors.subject && "border-rose-500 border-2"
             )}
           />
@@ -134,7 +135,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'Are you displaying all pets...'"
             className={cn(
-              "rounded-md bg-slate-800 p-6 h-40 resize-none",
+              "rounded-md bg-slate-800 p-6 h-40 resize-none z-50",
               errors.message && "border-rose-500 border-2"
             )}
           />
@@ -148,6 +149,7 @@ const ContactPage = () => {
         >
           Submit
         </Button>
+        <BackgroundBeams />
       </form>
     </div>
   );
