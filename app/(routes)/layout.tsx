@@ -4,7 +4,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Header />
-      <main className="px-36">
+      <main className="px-4 lg:px-36">
         {children}
       </main>
     </div>
