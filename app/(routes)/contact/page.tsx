@@ -68,7 +68,11 @@ const ContactPage = () => {
   };
 
   return (
-    <div>
+    <div className="my-20">
+      <h1 className="text-center text-4xl mb-10">Have any questions?</h1>
+      <h2 className="text-center text-xl text-slate-500 mb-40">
+        Contact us below!
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="flex flex-col flex-1 space-y-2">
           <label htmlFor="name" className="text-white/30">
@@ -81,7 +85,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'Luka'"
             className={cn(
-              "rounded-md bg-slate-800 p-6 z-50",
+              "rounded-md bg-slate-800 p-6 z-10",
               errors.name && "border-rose-500 border-2"
             )}
           />
@@ -98,7 +102,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'moj@tvz.hr'"
             className={cn(
-              "rounded-md bg-slate-800 p-6 z-50",
+              "rounded-md bg-slate-800 p-6 z-10",
               errors.email && "border-rose-500 border-2"
             )}
           />
@@ -117,7 +121,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'Pets Table'"
             className={cn(
-              "rounded-md bg-slate-800 p-6 z-50",
+              "rounded-md bg-slate-800 p-6 z-10",
               errors.subject && "border-rose-500 border-2"
             )}
           />
@@ -135,7 +139,7 @@ const ContactPage = () => {
             onChange={handleChange}
             placeholder="'Are you displaying all pets...'"
             className={cn(
-              "rounded-md bg-slate-800 p-6 h-40 resize-none z-50",
+              "rounded-md bg-slate-800 p-6 h-40 resize-none z-10",
               errors.message && "border-rose-500 border-2"
             )}
           />

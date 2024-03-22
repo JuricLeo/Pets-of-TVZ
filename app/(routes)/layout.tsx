@@ -4,11 +4,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Header />
-      <main className="px-4 lg:px-36 pt-40">
-        {children}
-      </main>
+      <main className="px-4 lg:px-36 pt-40">{children}</main>
     </div>
-  )
-}
+  );
+};
 
 export default AppLayout;
