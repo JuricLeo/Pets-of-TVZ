@@ -47,15 +47,6 @@ export const columns = (
     header: "Favorite Activity",
   },
   {
-    accessorKey: "ownerName",
-    header: "Owner Name",
-    cell: () => {
-      const { user } = useUser();
-
-      return <div>{user?.firstName}</div>;
-    },
-  },
-  {
     accessorKey: "createdAt",
     header: ({ column }) => {
       return (
