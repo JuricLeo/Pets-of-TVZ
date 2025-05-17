@@ -1,7 +1,7 @@
 "use client";
 
 interface Pet {
-  id: number;
+  id: string;
   name: string;
   species: string;
   age: number;
@@ -11,8 +11,8 @@ interface Pet {
 }
 
 interface UpdateModalProps {
-  petId: number;
-  onUpdated: (updatedPetId: number) => void;
+  petId: string;
+  onUpdated: (updatedPetId: string) => void;
 }
 
 import {
@@ -67,7 +67,7 @@ export default function UpdateModal({ petId, onUpdated }: UpdateModalProps) {
     }));
   };
 
-  const onUpdate = async (petId: number) => {
+  const onUpdate = async (petId: string) => {
     try {
       const updatedPetData = {
         name: pet.name,

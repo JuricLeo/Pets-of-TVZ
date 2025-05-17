@@ -1,8 +1,8 @@
 "use client";
 
 interface DeleteModalProps {
-  petId: number;
-  onDeleted: (deletedPetId: number) => void; 
+  petId: string;
+  onDeleted: (deletedPetId: string) => void;
 }
 
 import {
@@ -17,13 +17,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import axios from "axios";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
-export default function DeleteModal({ petId, onDeleted }: DeleteModalProps ) {
-  const onDelete = async (petId: number) => {
+export default function DeleteModal({ petId, onDeleted }: DeleteModalProps) {
+  const onDelete = async (petId: string) => {
     try {
-      await axios.delete('/api/pets', { data: { petId } });
-      onDeleted(petId); 
+      await axios.delete("/api/pets", { data: { petId } });
+      onDeleted(petId);
       toast.success("Pet deleted successfully!");
     } catch (error) {
       toast.error("There was a problem while deleting the pet, try again");
@@ -36,9 +36,7 @@ export default function DeleteModal({ petId, onDeleted }: DeleteModalProps ) {
         <AlertDialogTrigger className="text-white">Delete</AlertDialogTrigger>
         <AlertDialogContent className="bg-black">
           <AlertDialogHeader>
-            <AlertDialogTitle>
-              Are you absolutely sure?
-            </AlertDialogTitle>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
               This action cannot be undone. This will permanently delete this
               pet and remove it data from the database.

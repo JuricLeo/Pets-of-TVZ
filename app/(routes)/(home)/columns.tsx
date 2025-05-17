@@ -7,7 +7,7 @@ import DeleteModal from "@/components/layout/home/delete-modal";
 import { ArrowUpDown } from "lucide-react";
 
 export type Pet = {
-  id: number;
+  id: string;
   name: string;
   species: string;
   age: number;
@@ -26,7 +26,7 @@ function ActionsCell({
 }: {
   pet: Pet;
   handleUpdatePet: () => Promise<void>;
-  handleDeletePet: (petId: number) => void;
+  handleDeletePet: (petId: string) => void;
 }) {
   const { user } = useUser();
 
@@ -51,7 +51,7 @@ function ActionsCell({
 
 export const columns = (
   handleUpdatePet: () => Promise<void>,
-  handleDeletePet: (petId: number) => void
+  handleDeletePet: (petId: string) => void
 ): ColumnDef<Pet>[] => [
   {
     accessorKey: "name",

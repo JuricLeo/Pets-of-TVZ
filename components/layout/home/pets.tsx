@@ -25,8 +25,8 @@ const Pets = () => {
   const handleAddPet = (newPet: Pet) => {
     setPets((prevPets) => [...prevPets, newPet]);
   };
-  
-  const handleDeletePet = (deletedPetId: number) => {
+
+  const handleDeletePet = (deletedPetId: string) => {
     setPets((prevPets) => prevPets.filter((pet) => pet.id !== deletedPetId));
   };
 
@@ -38,13 +38,15 @@ const Pets = () => {
       console.log("Error while fetching updated pets: ", error);
     }
   };
-  
 
   return (
     <div className="mb-40">
       {/* @ts-ignore */}
       <AddPetsForm onPetAdded={handleAddPet} />
-      <DataTable columns={columns(handleUpdatePet, handleDeletePet)} data={pets} />
+      <DataTable
+        columns={columns(handleUpdatePet, handleDeletePet)}
+        data={pets}
+      />
     </div>
   );
 };
