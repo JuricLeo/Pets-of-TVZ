@@ -18,6 +18,37 @@ export type Pet = {
   ownerId?: string;
 };
 
+// Create a separate component for the actions cell
+function ActionsCell({
+  pet,
+  handleUpdatePet,
+  handleDeletePet,
+}: {
+  pet: Pet;
+  handleUpdatePet: () => Promise<void>;
+  handleDeletePet: (petId: number) => void;
+}) {
+  const { user } = useUser();
+
+  if (user && pet.ownerId === user.id) {
+    return (
+      <div className="space-x-2 flex">
+        <Button variant="update" className="w-20">
+          <UpdateModal petId={pet.id} onUpdated={handleUpdatePet} />
+        </Button>
+        <Button variant="destructive" className="w-20">
+          <DeleteModal
+            petId={pet.id}
+            onDeleted={() => handleDeletePet(pet.id)}
+          />
+        </Button>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 export const columns = (
   handleUpdatePet: () => Promise<void>,
   handleDeletePet: (petId: number) => void
@@ -72,20 +103,13 @@ export const columns = (
     header: "",
     cell: ({ row }) => {
       const pet = row.original;
-      const { user } = useUser();
-
-      if (user && pet.ownerId === user.id) {
-        return (
-          <div className="space-x-2 flex">
-            <Button variant="update" className="w-20">
-              <UpdateModal petId={pet.id} onUpdated={handleUpdatePet} />
-            </Button>
-            <Button variant="destructive" className="w-20">
-              <DeleteModal petId={pet.id} onDeleted={handleDeletePet} />
-            </Button>
-          </div>
-        );
-      }
+      return (
+        <ActionsCell
+          pet={pet}
+          handleUpdatePet={handleUpdatePet}
+          handleDeletePet={handleDeletePet}
+        />
+      );
     },
   },
 ];
